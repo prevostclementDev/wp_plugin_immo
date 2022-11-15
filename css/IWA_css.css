@@ -39,3 +39,20 @@
     z-index: 1;
     
 }
+
+.apercu_prestige_img {
+
+    width: fit-content;
+    height: fit-content;
+    display: block;
+
+}
+
+.apercu_prestige_img img {
+
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+
+}

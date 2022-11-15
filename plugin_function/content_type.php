@@ -9,7 +9,7 @@
                 'name'                => _x( 'Biens à la ventes', 'Post Type General Name'),
                 'singular_name'       => _x( 'Biens à la ventes', 'Post Type Singular Name'),
         
-                'menu_name'           => __( 'Biens à la ventes'),
+                'menu_name'           => __( 'Biens ventes'),
         
                 'all_items'           => __( 'tous les biens à la ventes'),
                 'view_item'           => __( 'voir les biens à la ventes'),
@@ -40,7 +40,7 @@
                 'name'                => _x( 'Biens à la locations', 'Post Type General Name'),
                 'singular_name'       => _x( 'Biens à la locations', 'Post Type Singular Name'),
         
-                'menu_name'           => __( 'Biens à la locations'),
+                'menu_name'           => __( 'Biens locations'),
         
                 'all_items'           => __( 'tous les biens à la locations'),
                 'view_item'           => __( 'voir les biens à la locations'),
@@ -56,7 +56,7 @@
             'description'         => 'Tous les biens à la locations',
             'public'              => true,
             'menu_position'       => 20,
-            'menu_icon'          => "dashicons-buddicons-replies",
+            'menu_icon'          => "dashicons-building",
             'supports' => ['title','page-attributes','revisions'],
         );
     
