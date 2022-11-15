@@ -6,13 +6,16 @@
         $val = unserialize(get_post_meta($post->ID,'_info_sell',true));
         ?>
             <label for="name_sell">Nom du bien :</label>
-            <input type="text" name="name_sell" id="name_sell" value='<?php if ( isset($val["name_sell"]) ) { echo $val["name_sell"]; } ?>'>
+            <input type="text" name="name_sell" id="name_sell" value='<?php if ( isset($val["name_sell"]) ) { echo $val["name_sell"]; } ?>' required>
+            <br><br>  
+            <label for="name_sell">Adresse du bien :</label>
+            <input type="text" name="address_sell" id="address_sell" value='<?php if ( isset($val["address_sell"]) ) { echo $val["address_sell"]; } ?>' required>
             <br><br>  
             <label for="desc_sell">Déscription du bien :</label><br>
             <?php wp_editor( $val['desc_sell'], "desc_sell" , array('textarea_name'=>'desc_sell') ); ?>
             <br><br>   
             <label for="price_sell">Prix du bien :</label>
-            <input type="number" name="price_sell" id="price_sell" value='<?php if ( isset($val["price_sell"]) ) { echo $val["price_sell"]; } ?>'>
+            <input type="number" name="price_sell" id="price_sell" value='<?php if ( isset($val["price_sell"]) ) { echo $val["price_sell"]; } ?>' required>
 
             <div class="img_champs">
 
@@ -52,22 +55,22 @@
 
             <br><br>
             <label for="price_sell">Nombre de salle(s) de bain(s) :</label><br>
-            <input type="number" name="nb_bath" id="nb_bath" value='<?php if ( isset($val["nb_bath"]) ) { echo $val["nb_bath"]; } ?>'>
+            <input type="number" name="nb_bath" id="nb_bath" value='<?php if ( isset($val["nb_bath"]) ) { echo $val["nb_bath"]; } ?>' required>
 
             <br><br>
             <label for="price_sell">Nombre de chambre(s) :</label><br>
-            <input type="number" name="nb_bedroom" id="nb_bedroom" value='<?php if ( isset($val["nb_bedroom"]) ) { echo $val["nb_bedroom"]; } ?>'>
+            <input type="number" name="nb_bedroom" id="nb_bedroom" value='<?php if ( isset($val["nb_bedroom"]) ) { echo $val["nb_bedroom"]; } ?>' required>
 
             <br><br>
             <label for="price_sell">Surface en m2 :</label><br>
-            <input type="number" name="surface" id="surface" value='<?php if ( isset($val["surface"]) ) { echo $val["surface"]; } ?>'>
+            <input type="number" name="surface" id="surface" value='<?php if ( isset($val["surface"]) ) { echo $val["surface"]; } ?>' required>
 
             <div class="prestigeImg" style="margin-top: 30px;">
             
                 <div class="first">
                     <label for="price_sell">Titre image prestige 1 :</label>
-                    <input type="text" name="title_prestige_1" id="title_prestige_1" value='<?php if ( isset($val["prestige_1"]['title']) ) { echo $val["prestige_1"]['title']; } ?>'>
-                    <input type="text" class="hidden" name="img_prestige_1" id="img_prestige_1" value="<?php if ( isset($val["prestige_1"]['img']) ) { echo $val["prestige_1"]['img']; } ?>">
+                    <input type="text" name="title_prestige_1" id="title_prestige_1" value='<?php if ( isset($val["prestige_1"]['title']) ) { echo $val["prestige_1"]['title']; } ?>' required>
+                    <input type="text" class="hidden" name="img_prestige_1" id="img_prestige_1" value="<?php if ( isset($val["prestige_1"]['img']) ) { echo $val["prestige_1"]['img']; } ?>" required>
                     <br><div class="apercu_1 apercu_prestige_img" style="margin-top: 15px;">
                     <?php if ( isset($val["prestige_1"]['img']) ) { ?>
                             <img src="<?=$val["prestige_1"]['img']?>" alt="">
@@ -78,8 +81,8 @@
 
                 <div class="second">
                     <label for="price_sell">Titre image prestige 2 :</label>
-                    <input type="text" name="title_prestige_2" id="title_prestige_2" value='<?php if ( isset($val["prestige_2"]['title']) ) { echo $val["prestige_2"]['title']; } ?>'>
-                    <input type="text" class="hidden" name="img_prestige_2" id="img_prestige_2" value="<?php if ( isset($val["prestige_2"]['img']) ) { echo $val["prestige_2"]['img']; } ?>">
+                    <input type="text" name="title_prestige_2" id="title_prestige_2" value='<?php if ( isset($val["prestige_2"]['title']) ) { echo $val["prestige_2"]['title']; } ?>' required>
+                    <input type="text" class="hidden" name="img_prestige_2" id="img_prestige_2" value="<?php if ( isset($val["prestige_2"]['img']) ) { echo $val["prestige_2"]['img']; } ?>" required>
                     <br><div class="apercu_2 apercu_prestige_img" style="margin-top: 15px;">
                         <?php if ( isset($val["prestige_2"]['img']) ) { ?>
                             <img src="<?=$val["prestige_2"]['img']?>" alt="">
@@ -106,6 +109,7 @@
 
             "imgArray" => [],
             "name_sell" => false,
+            "address_sell" => false,
             "desc_sell" => false,
             "price_sell" => false,
             "nb_bath" => false,
@@ -121,7 +125,7 @@
             ]
 
         ];
-
+        
         if (isset($_POST['have_img'])) {
 
             $i = $_POST['have_img'] - 1;
@@ -146,6 +150,7 @@
             $unserializeArray["nb_bath"] = $_POST['nb_bath'];
             $unserializeArray["nb_bedroom"] = $_POST['nb_bedroom'];
             $unserializeArray["surface"] = $_POST['surface'];
+            $unserializeArray['address_sell'] = $_POST['address_sell'];
             $unserializeArray["prestige_1"] = [
                 "title" => $_POST['title_prestige_1'],
                 "img" => $_POST['img_prestige_1']

@@ -26,7 +26,7 @@
             'public'              => true,
             'menu_position'       => 21,
             'menu_icon'          => "dashicons-building",
-            'supports' => ['title','page-attributes','revisions','excerpt'],
+            'supports' => ['title','page-attributes','excerpt','thumbnail'],
         );
     
         register_post_type( 'sell', $args_type );
