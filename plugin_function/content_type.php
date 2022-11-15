@@ -26,7 +26,7 @@
             'public'              => true,
             'menu_position'       => 21,
             'menu_icon'          => "dashicons-building",
-            'supports' => ['title','page-attributes','revisions'],
+            'supports' => ['title','page-attributes','revisions','excerpt'],
         );
     
         register_post_type( 'sell', $args_type );
@@ -57,7 +57,7 @@
             'public'              => true,
             'menu_position'       => 20,
             'menu_icon'          => "dashicons-building",
-            'supports' => ['title','page-attributes','revisions'],
+            'supports' => ['title','page-attributes','revisions','excerpt'],
         );
     
         register_post_type( 'loc', $args_type );
