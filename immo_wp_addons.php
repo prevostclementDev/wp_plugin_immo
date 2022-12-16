@@ -28,9 +28,20 @@
     require_once('plugin_function/page/IWA-admin.php');
 
     function register_my_admin_menu() {
+
+        $option = unserialize(get_option('reservation'));
+
+        $notif = '';
+
+        if ( $option != false && count($option) != 0 ) {
+
+            $notif = '<span class="awaiting-mod">'.count($option).'</span>';
+
+        }
+
         add_menu_page(
             __( 'Reservation', 'reserve' ),
-            'Réservations<span class="awaiting-mod">2</span>',
+            'Réservations'.$notif,
             'manage_options',
             'reservation',
             'generate_reservation_iwa_page',
