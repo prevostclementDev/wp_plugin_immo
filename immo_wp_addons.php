@@ -25,5 +25,21 @@
 
     add_action('admin_enqueue_scripts', 'add_js_css_admin');
 
+    require_once('plugin_function/page/IWA-admin.php');
+
+    function register_my_admin_menu() {
+        add_menu_page(
+            __( 'Reservation', 'reserve' ),
+            'Réservations<span class="awaiting-mod">2</span>',
+            'manage_options',
+            'reservation',
+            'generate_reservation_iwa_page',
+            'dashicons-lock',
+            22
+        );
+    }
+
+    add_action( 'admin_menu', 'register_my_admin_menu' );
+
     require_once('plugin_function/content_type.php');
     require_once('plugin_function/metaxbox.php');
