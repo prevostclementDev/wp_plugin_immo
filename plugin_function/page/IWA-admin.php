@@ -20,8 +20,7 @@
 
                 update_option('reservation', serialize($option));
                 wp_redirect( get_site_url().'/wp-admin/admin.php?page=reservation' ); 
-                exit;
-
+                exit();
             }
 
             echo '<h1> Les réservations </h1><hr>';
